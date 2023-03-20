@@ -28,6 +28,6 @@
     "**/*.tsx",
     "**/*.cjs",
     "**/*.mjs"
-  ],
+, "src/components/CodeBlock.jsx"  ],
   "exclude": ["node_modules"]
 }
