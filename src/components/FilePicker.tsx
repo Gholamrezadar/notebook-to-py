@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 interface FilePickerProps {
-    setData: Function;
-    setIsFileRead: Function;
+    setData: (data: object|null) => void;
+    setIsFileRead: (isFileRead: boolean) => void;
 }
 
 export default function FilePicker({setData, setIsFileRead}:FilePickerProps) {
@@ -16,14 +16,14 @@ export default function FilePicker({setData, setIsFileRead}:FilePickerProps) {
         setFileName("");
         // console.log("Data reset");
 
-        let fileList = event.target.files;
+        const fileList = event.target.files;
         if (fileList && fileList.length === 1) {
 
-            let file = fileList[0];
+            const file = fileList[0];
             
             if (file) setFileName(file.name);
 
-            let reader = new FileReader();
+            const reader = new FileReader();
 
             // setData on file load
             reader.onload = (event) => {

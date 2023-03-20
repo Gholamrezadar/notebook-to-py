@@ -1,6 +1,4 @@
 import { type NextPage } from "next";
-import Head from "next/head";
-import Link from "next/link";
 import Navbar from "../components/Navbar";
 import CodeBlock from "../components/CodeBlock";
 import FilePicker from "~/components/FilePicker";
@@ -32,7 +30,7 @@ const Home: NextPage = () => {
         if (cell.cell_type === "code") {
           if (cell.source && cell.source[0] == saveTag + "\n") {
             // skip the first line
-            let cell_source = cell.source?.slice(); // copy the array so we don't modify the original with shifting
+            const cell_source = cell.source?.slice(); // copy the array so we don't modify the original with shifting
             cell_source.shift();
             output_code += cell_source.join("") + "\n\n";
           }
@@ -40,7 +38,7 @@ const Home: NextPage = () => {
 
         // Save markdown cells depending on the h1 and h2 settings
         if (cell.cell_type === "markdown") {
-          let cell_source = cell.source?.join("# ");
+          const cell_source = cell.source?.join("# ");
 
           if (saveH1 && cell_source?.startsWith("# ")) {
             output_code += cell_source + "\n\n";
@@ -124,7 +122,6 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-
           {/* Convert Button */}
           <button
             className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#14329f] rounded-md hover:bg-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
@@ -135,7 +132,7 @@ const Home: NextPage = () => {
           {/* Copy to Clipboard Button */}
           <button
               className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#000000] rounded-md hover:bg-[#050505] focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-              onClick={()=>{copyToClipboard(output)}}>
+              onClick={async ()=>{await copyToClipboard(output)}}>
               Copy
             </button>
           
