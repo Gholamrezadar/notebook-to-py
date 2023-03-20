@@ -16,7 +16,7 @@ export default function NavBar() {
                     <div
                         className="cursor-pointer hidden md:block"
                     >
-                        <Link href="/">
+                        <Link href="https://github.com/Gholamrezadar/notebook-to-py/">
                             <svg
                                 viewBox="0 0 38 38"
                                 className="h-9 w-9"
