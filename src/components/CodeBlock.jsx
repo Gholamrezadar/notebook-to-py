@@ -5,7 +5,7 @@
 // Don't forget to change /esm to /cjs
 import { Light as SyntaxHighlighter } from 'react-syntax-highlighter';
 import python from 'react-syntax-highlighter/dist/cjs/languages/hljs/python';
-import irBlack from 'react-syntax-highlighter/dist/cjs/styles/hljs/irBlack';
+import { irBlack } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 SyntaxHighlighter.registerLanguage('python', python);
 
